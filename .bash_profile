@@ -32,6 +32,11 @@ elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
 
+# Add tab completion for git via Xcode
+if [ -f "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash" ]; then
+	source "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash"
+fi;
+
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
 	complete -o default -o nospace -F _git g;
